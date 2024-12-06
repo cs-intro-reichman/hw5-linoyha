@@ -49,7 +49,7 @@ public class Scrabble {
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
 		for (int i = 0; i < DICTIONARY.length; i++) {
-			if (word == DICTIONARY[i]) {
+			if (word.equals(DICTIONARY[i])) {
 				return true;
 			}
 		}
@@ -120,11 +120,10 @@ public class Scrabble {
 			}
 			else if (!MyString.subsetOf(input, hand)) {
 				System.out.println("Invalid word. Try again.");
-				playHand(hand);
+	
 			}
 			else if(isWordInDictionary(input) == false) {
 				System.out.println ("No such word in the dictionary. Try again.");
-				playHand(hand);
 			}
 			else {
 				score += wordScore(input);
@@ -154,6 +153,7 @@ public class Scrabble {
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
+			
 			if (input.equals("n")) {
 				playHand(createHand());
 			}
@@ -172,8 +172,8 @@ public class Scrabble {
 		//testBuildingTheDictionary();  
 		//testScrabbleScore();    
 		//testCreateHands();  
-		//testPlayHands();
-		playGame();
+		testPlayHands();
+		//playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
@@ -199,7 +199,7 @@ public class Scrabble {
 	}
 	public static void testPlayHands() {
 		init();
-		//playHand("ocostrza");
+		playHand("ocostrza");
 		//playHand("arbffip");
 		//playHand("aretiin");
 	}
