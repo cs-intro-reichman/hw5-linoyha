@@ -7,7 +7,7 @@ public class MyString {
         System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
-        System.out.println(subsetOf("pass", "space"));
+        System.out.println(subsetOf("spa", "space"));
         System.out.println(spacedString(hello));
         //// Put your other tests here.
     }
@@ -46,7 +46,8 @@ public class MyString {
             if (countChar(str2, str1.charAt(i)) == 0) {
                 return false;
             }
-            str2 = str2.substring(0, i) + str2.substring(i+1);
+            int index = str2.indexOf(str1.charAt(i));
+            str2 = str2.substring(0,index) + str2.substring(index +1);
          }
         return true;
     }
